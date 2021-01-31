@@ -3,6 +3,11 @@ Stappenstrijd
 
 A toy project to get to know Spring Boot and Kafka a bit.
 
+Usage
+-----
+
+	curl -H 'Content-Type: application/json' --data-raw '{"dateOfActivity": "2021-01-31", "numberOfSteps": 42}' http://localhost:8080/1234/stappen
+
 Roadmap
 -------
 

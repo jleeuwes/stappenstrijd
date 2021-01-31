@@ -1,4 +1,4 @@
-package eu.lwstn.stappenstrijd.stappenservice;
+package eu.lwstn.stappenstrijd.messages;
 
 import lombok.Data;
 import lombok.With;

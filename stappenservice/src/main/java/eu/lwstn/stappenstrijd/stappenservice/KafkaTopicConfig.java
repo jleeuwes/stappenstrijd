@@ -15,7 +15,7 @@ import java.util.Map;
  */
 @Configuration
 public class KafkaTopicConfig {
-	public static final String STEPS_TOPIC_NAME = "steps";
+	public static final String STEPS_TOPIC_NAME = "steps"; // TODO share this with scoreservice
 
 	@Value(value = "${kafka.bootstrapAddress}")
 	private String bootstrapAddress;

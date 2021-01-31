@@ -16,6 +16,7 @@
 	<modules>
 		<module>messages</module>
 		<module>stappenservice</module>
+		<module>scoreservice</module>
 	</modules>
 	<properties>
 		<java.version>11</java.version>
@@ -33,6 +34,14 @@
 			<artifactId>spring-core</artifactId>
 			<version>5.3.3</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
 		</dependency>
 	</dependencies>
 

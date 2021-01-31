@@ -8,12 +8,10 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<groupId>eu.lwstn.stappenstrijd</groupId>
-	<artifactId>stappenservice</artifactId>
+	<artifactId>scoreservice</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>stappenservice</name>
-	<description>Stappen service for stappenstrijd</description>
+	<description>Score service for stappenstrijd</description>
 	<dependencies>
-		<!-- TODO add versions when stabilizing app -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>

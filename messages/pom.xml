@@ -11,8 +11,6 @@
 	<artifactId>messages</artifactId>
 	<!--<version>0.0.1-SNAPSHOT</version>-->
 	<description>Message types for stappenstrijd</description>
-	<dependencies>
-	</dependencies>
 
 	<build>
 		<plugins>

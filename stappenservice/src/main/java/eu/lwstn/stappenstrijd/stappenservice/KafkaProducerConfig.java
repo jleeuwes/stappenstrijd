@@ -1,6 +1,6 @@
 package eu.lwstn.stappenstrijd.stappenservice;
 
-import eu.lwstn.stappenstrijd.messages.BunchOfSteps;
+import eu.lwstn.stappenstrijd.domain.core.BunchOfSteps;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;

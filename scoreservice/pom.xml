@@ -35,8 +35,13 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
 			<groupId>eu.lwstn.stappenstrijd</groupId>
-			<artifactId>messages</artifactId>
+			<artifactId>domain-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<scope>compile</scope>
 		</dependency>

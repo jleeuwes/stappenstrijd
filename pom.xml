@@ -14,7 +14,7 @@
 	<description>stappenstrijd parent pom</description>
 	<packaging>pom</packaging>
 	<modules>
-		<module>messages</module>
+		<module>domain-core</module>
 		<module>stappenservice</module>
 		<module>scoreservice</module>
 	</modules>
@@ -32,7 +32,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>5.3.3</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>

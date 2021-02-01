@@ -1,5 +1,6 @@
 package eu.lwstn.stappenstrijd.stappenservice;
 
+import eu.lwstn.stappenstrijd.domain.core.BunchOfSteps;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,8 +16,6 @@ import java.util.Map;
  */
 @Configuration
 public class KafkaTopicConfig {
-	public static final String STEPS_TOPIC_NAME = "steps"; // TODO share this with scoreservice
-
 	@Value(value = "${kafka.bootstrapAddress}")
 	private String bootstrapAddress;
 
@@ -29,6 +28,6 @@ public class KafkaTopicConfig {
 
 	@Bean
 	public NewTopic topicSteps() {
-		return new NewTopic(STEPS_TOPIC_NAME, 1, (short) 1);
+		return new NewTopic(BunchOfSteps.KAFKA_TOPIC, 1, (short) 1);
 	}
 }

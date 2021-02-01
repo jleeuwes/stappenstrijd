@@ -1,14 +1,12 @@
 package eu.lwstn.stappenstrijd.stappenservice;
 
-import eu.lwstn.stappenstrijd.messages.BunchOfSteps;
+import eu.lwstn.stappenstrijd.domain.core.BunchOfSteps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.ExecutionException;
-
-import static eu.lwstn.stappenstrijd.stappenservice.KafkaTopicConfig.STEPS_TOPIC_NAME;
 
 @RestController
 public class StappenController {
@@ -19,19 +17,19 @@ public class StappenController {
 		ASYNCHRONOUS,
 		SYNCHRONOUS
 	}
-	private static final KafkaSynchronicity KAFKA_SYNCHRONICITY = KafkaSynchronicity.ASYNCHRONOUS;
+	private static final KafkaSynchronicity KAFKA_SYNCHRONICITY = KafkaSynchronicity.SYNCHRONOUS;
 
 	@PostMapping(
-			value="/{userId}/stappen",
+			value="/stappen",
 			consumes = "application/json",
-			produces = "application/json" // TODO does this set the Content header?
+			produces = "application/json"
 	)
-	public ResponseEntity<?> createBunchOfSteps(@PathVariable String userId, @RequestBody BunchOfSteps bunchOfSteps) {
-		// TODO some rudimental authentication (userid as a token?) and authorization (only allow adding steps to yourself)
+	public ResponseEntity<?> createBunchOfSteps(@RequestBody BunchOfSteps bunchOfSteps) {
+		// TODO some rudimental dummy authentication (userid as a token?) and authorization (only allow adding steps to yourself)
 
-		System.out.println(bunchOfSteps); // TODO replace with proper logging
+		System.out.println("Creating " + bunchOfSteps); // TODO replace with proper logging
 
-		var sendFuture = kafkaTemplate.send(STEPS_TOPIC_NAME, bunchOfSteps);
+		var sendFuture = kafkaTemplate.send(BunchOfSteps.KAFKA_TOPIC, bunchOfSteps);
 
 		// TODO pick between async and sync; this switch is just to play around
 		switch (KAFKA_SYNCHRONICITY) {
@@ -46,7 +44,7 @@ public class StappenController {
 				// Just fire and forget. TODO probably log errors instead of ignoring them :P
 				return ResponseEntity.accepted().build();
 		}
-		throw new ForgottenCaseError(KAFKA_SYNCHRONICITY);
+		throw new ForgottenCaseError(KAFKA_SYNCHRONICITY); // would not be necessary with https://openjdk.java.net/jeps/361#Exhaustiveness from Java 14
 	}
 
 	public static final class KafkaError extends RuntimeException {
